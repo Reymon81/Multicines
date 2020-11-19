@@ -42,9 +42,9 @@ public class Multicines {
 	 * FUNCION QUE COMPRUEBA SI LO ESCRITO POR TECLADO ES UN NUMERO
 	 * @param cadena ES UN STRING QUE RECOGE LO INSERTADO POR TECLADO
 	 * @return <ul>
-	 * 				<li>true: LO INSERTADO POR TECLADO ES UN NUMERO
-	 * 				<li>false: LO INSERTADO POR TECLADO NO ES UN NUMERO	
-	 * 		   <ul>
+	 *		<li>true: LO INSERTADO POR TECLADO ES UN NUMERO
+	 * 		<li>false: LO INSERTADO POR TECLADO NO ES UN NUMERO	
+	 * 	   <ul>
 	 */	
 	public static boolean esNumero(String cadena) {
 		try {
@@ -76,12 +76,12 @@ public class Multicines {
 	 */
 	public static void printMenu() {
 		System.out.println("\n****** MENU *******\n");
-		System.out.println("1. Mostrar Salas\n" + "2. Añadir Sala\n" + "3. Eliminar Sala\n" + "4. Vender Entradas\n"
+		System.out.println("1. Mostrar Salas\n" + "2. AÃ±adir Sala\n" + "3. Eliminar Sala\n" + "4. Vender Entradas\n"
 				+ "5. Salir\n");
 	}
  
 	/**
-	 * METODO PARA AÑADIR UNA SALA EN LA HASHTABLE
+	 * METODO PARA AÃ‘ADIR UNA SALA EN LA HASHTABLE
 	 * @param salas ES UNA HASHTABLE DONDE LAS KEYS SON EL NUMERO DE SALAS Y EL CONTENIDO ASOCIADO ES LA INFORMACION DE LA SALA
 	 */
 	public static void annadirSala(Hashtable<Integer, String> salas) {
@@ -149,7 +149,7 @@ public class Multicines {
 		String informacion, titulo = null;
 		int libres = 0;
 		System.out.println();
-		System.out.println("Sala    Pelicula                      Tamaño sala    Asientos libres");
+		System.out.println("Sala    Pelicula                      TamaÃ±o sala    Asientos libres");
 		System.out.println("----    ---------------------------   -----------    ---------------");
 		Enumeration enumeration = salas.keys();
 		while (enumeration.hasMoreElements()) {
@@ -202,7 +202,7 @@ public class Multicines {
 		if (!salas.containsKey(numero)) {
 			System.out.println("el numero de sala introducida no existe");
 		} else {
-			System.out.println("¿estas seguro de eliminar esta sala? s/n");
+			System.out.println("Â¿estas seguro de eliminar esta sala? s/n");
 			String borrar = sc.nextLine();
 			while (!borrar.equals("s") && !borrar.equals("n")) {
 				System.out.println("la respuesta es incorrecta, prueba de nuevo s/n");
@@ -251,7 +251,7 @@ public class Multicines {
 				StringTokenizer stElementos = new StringTokenizer(patio.nextToken(), ":");
 				matriz = new String[filas][columnas];
 				while (stElementos.hasMoreTokens()) {
-					//AÑADO AL VECTOR TODAS LAS BUTACAS
+					//AÃ‘ADO AL VECTOR TODAS LAS BUTACAS
 					butacas.add(stElementos.nextToken());
 				}
 				for (int i = 0; i < filas; i++) {
@@ -340,7 +340,7 @@ public class Multicines {
 					comprarEntrada(salas, patio);
 					break;
 				case 5:
-					System.out.println("¿Estas seguro de querer salir? s/n");
+					System.out.println("Â¿Estas seguro de querer salir? s/n");
 					apagar = sl.nextLine();
 					while (!apagar.equals("s") && !apagar.equals("n")) {
 						System.out.println("la respuesta es incorrecta, prueba de nuevo s/n");
