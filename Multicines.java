@@ -1,6 +1,7 @@
-import java.util.Enumeration;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -151,12 +152,12 @@ public class Multicines {
 		System.out.println();
 		System.out.println("Sala    Pelicula                      Tamaño sala    Asientos libres");
 		System.out.println("----    ---------------------------   -----------    ---------------");
-		Enumeration enumeration = salas.keys();
-		while (enumeration.hasMoreElements()) {
+		List<Integer> lista = new ArrayList<Integer>(salas.keySet());
+		for (int i = lista.size()-1; i >= 0 ; i--) {
 			// OBTENGO LA KEY DE SALAS
-			sala = (int) enumeration.nextElement();
+			sala = lista.get(i);;
 			// OBTENGO LA INFORMACION ASOCIADA A ESA KEY
-			informacion = salas.get(sala);
+			informacion = salas.get(lista.get(i));
 			// LOS DATOS DE LAS SALAS ESTAN SEPARADOS POR ;
 			patio = new StringTokenizer(informacion, ";");
 			if (patio.countTokens() == 4) {
