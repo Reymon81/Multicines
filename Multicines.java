@@ -228,7 +228,7 @@ public class Multicines {
 		int cButaca;
 		Vector<String> butacas = new Vector<>();
 		String matriz[][] = null;
-		mostrarSala(salas, patio);
+		mostrarSala(salas);
 		System.out.println();
 		System.out.println("selecciona la sala de proyeccion: ");
 		String seleccion = sc.nextLine();
