@@ -145,7 +145,7 @@ public class Multicines {
 	 * @param salas ES UNA HASHTABLE DONDE LAS KEYS SON EL NUMERO DE SALAS Y EL CONTENIDO ASOCIADO ES LA INFORMACION DE LA SALA
 	 * @param patio ES UN STRINGTOKENIZER QUE GUARDA LA INFORMACION DE UNA SALA (TITULO,FILAS,COLUMNAS Y ASIENTOS)
 	 */
-	public static void mostrarSala(Hashtable<Integer, String> salas, StringTokenizer patio) {
+	public static void mostrarSala(Hashtable<Integer, String> salas) {
 		int sala, filas = 0, columnas = 0;
 		String informacion, titulo = null;
 		int libres = 0;
@@ -159,7 +159,7 @@ public class Multicines {
 			// OBTENGO LA INFORMACION ASOCIADA A ESA KEY
 			informacion = salas.get(lista.get(i));
 			// LOS DATOS DE LAS SALAS ESTAN SEPARADOS POR ;
-			patio = new StringTokenizer(informacion, ";");
+			StringTokenizer patio = new StringTokenizer(informacion, ";");
 			if (patio.countTokens() == 4) {
 				titulo = patio.nextToken();
 				filas = Integer.parseInt(patio.nextToken());
@@ -189,9 +189,9 @@ public class Multicines {
 	 * @param salas ES UNA HASHTABLE DONDE LAS KEYS SON EL NUMERO DE SALAS Y EL CONTENIDO ASOCIADO ES LA INFORMACION DE LA SALA
 	 * @param patio ES UN STRINGTOKENIZER QUE GUARDA LA INFORMACION DE UNA SALA (TITULO,FILAS,COLUMNAS Y ASIENTOS)
 	 */
-	public static void eliminarSala(Hashtable<Integer, String> salas, StringTokenizer patio) {
+	public static void eliminarSala(Hashtable<Integer, String> salas) {
 		Scanner sc = new Scanner(System.in);
-		mostrarSala(salas, patio);
+		mostrarSala(salas);
 		System.out.println();
 		System.out.println("inserta el numero de sala que quieres eliminar: ");
 		String cadena = sc.nextLine();
@@ -220,7 +220,7 @@ public class Multicines {
 	 * @param salas ES UNA HASHTABLE DONDE LAS KEYS SON EL NUMERO DE SALAS Y EL CONTENIDO ASOCIADO ES LA INFORMACION DE LA SALA
 	 * @param patio ES UN STRINGTOKENIZER QUE GUARDA LA INFORMACION DE UNA SALA (TITULO,FILAS,COLUMNAS Y ASIENTOS)
 	 */
-	public static void comprarEntrada(Hashtable<Integer, String> salas, StringTokenizer patio) {
+	public static void comprarEntrada(Hashtable<Integer, String> salas) {
 		Scanner sc = new Scanner(System.in);
 		String informacion, nuevaInformacion, titulo, nuevoPatio = "";
 		int numero, filas, columnas, contador = 0;
@@ -243,7 +243,7 @@ public class Multicines {
 			try {
 
 				informacion = salas.get(numero);
-				patio = new StringTokenizer(informacion, ";");
+				StringTokenizer patio = new StringTokenizer(informacion, ";");
 
 				titulo = patio.nextToken();
 				filas = Integer.parseInt(patio.nextToken());
@@ -317,7 +317,6 @@ public class Multicines {
 		String apagar = "";
 		boolean salir = false;
 		int opcion;
-		StringTokenizer patio = null;
 		Hashtable<Integer, String> salas = new Hashtable<Integer, String>();
 
 		while (!salir) {
@@ -329,16 +328,16 @@ public class Multicines {
 
 				switch (opcion) {
 				case 1:
-					mostrarSala(salas, patio);
+					mostrarSala(salas);
 					break;
 				case 2:
 					annadirSala(salas);
 					break;
 				case 3:
-					eliminarSala(salas, patio);
+					eliminarSala(salas);
 					break;
 				case 4:
-					comprarEntrada(salas, patio);
+					comprarEntrada(salas);
 					break;
 				case 5:
 					System.out.println("¿Estas seguro de querer salir? s/n");
